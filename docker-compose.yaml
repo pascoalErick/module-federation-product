@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  mf-product:
+    build: ./
+    restart: always
+    ports:
+      - "9091:9091"
+    volumes:
+      - ./src/:/app/src/
+    command: yarn dev
+
+ 
