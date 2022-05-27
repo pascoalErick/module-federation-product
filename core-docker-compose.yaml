@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  module-federation-core:
+    image: erickpascoal/module-federation-core
+    restart: always
+    ports:
+      - "9090:9090"
+    command: yarn dev
+
+ 

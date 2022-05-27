@@ -10,7 +10,11 @@
     "test": "jest",
     "test:watch": "yarn test --watch",
     "test:coverage": "yarn test --coverage",
-    "cypress:open": "cypress open"
+    "test:e2e": "start-server-and-test dev 9091 cy:open",
+    "test:e2e:ci": "start-server-and-test dev 9091 cy:run",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "core:image": "docker-compose -f core-docker-compose.yaml up -d"
   },
   "keywords": [],
   "author": "Erick Pascoal",
@@ -42,6 +46,7 @@
     "fork-ts-checker-webpack-plugin": "^7.1.1",
     "html-webpack-plugin": "^4.5.1",
     "jest": "^27.5.1",
+    "start-server-and-test": "^1.14.0",
     "style-loader": "^2.0.0",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.5.0",

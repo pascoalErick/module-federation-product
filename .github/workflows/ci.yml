@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      # Unit Tests
+
+      - name: Unit Tests
+        run: npm run test:coverage
+
+      # E2E Tests
+
+      - name: Run Core Docker image
+        run: npm run core:image
+
+      - name: Run Cypress
+        run: npm run test:e2e:ci
