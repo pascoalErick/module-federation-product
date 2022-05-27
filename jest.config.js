@@ -1,7 +1,11 @@
 module.exports = {
   testEnvironment: "jsdom",
-  testPathIgnorePatterns: ["/node_modules/"],
-  collectCoverageFrom: ["src/**/*.ts(x)?"],
+  testPathIgnorePatterns: ["/node_modules/", "cypress"],
+  collectCoverage: false,
+  collectCoverageFrom: ["<rootDir>/src/**/*.ts(x)?"],
   setupFilesAfterEnv: ["<rootDir>/.jest/setup.ts"],
   modulePaths: ["<rootDir>/src", "<rootDir>/.jest"],
+  transform: {
+    "\\.[jt]sx?$": "babel-jest",
+  },
 };
