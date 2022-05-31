@@ -2,12 +2,7 @@
 
 describe("Products", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:9090");
-  });
-
-  it("should display dashboard", () => {
-    cy.findByRole("button", { name: /produtos/i }).click();
-    cy.findByRole("link", { name: /dashboard/i }).click();
+    cy.openCortexApp();
   });
 
   it("should create a product", () => {
